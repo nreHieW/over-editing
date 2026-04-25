@@ -22,7 +22,7 @@ class OpenRouterModel(BaseModel):
 
         self.thinking_effort = None
         if is_reasoning:
-            thinking_pattern = r"_(low|medium|high)$"
+            thinking_pattern = r"_(low|medium|high|xhigh)$"
             match = re.search(thinking_pattern, model_name)
             if match:
                 thinking_level = match.group(1)

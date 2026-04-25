@@ -16,7 +16,7 @@ class OpenAICompatibleModel(BaseModel):
 
         # Parse reasoning effort suffix for OpenAI models
         if model_name:
-            reasoning_pattern = r"_(minimal|low|medium|high)$"
+            reasoning_pattern = r"_(minimal|low|medium|high|xhigh)$"
             match = re.search(reasoning_pattern, model_name)
             if match:
                 self.reasoning_effort_level = match.group(1)
