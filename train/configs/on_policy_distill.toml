@@ -1,0 +1,57 @@
+max_steps = 50
+seq_len = 4096
+
+[model]
+name = "Qwen/Qwen3-4B-Instruct-2507"
+
+[deployment]
+gpus_per_node = 8
+num_infer_gpus = 4
+num_train_gpus = 3
+num_teacher_gpus = 1
+
+[trainer.loss]
+teacher_tau = 1.0
+adv_tau = 0.0
+
+[trainer.optim]
+lr = 1e-6
+
+[trainer.model.ac]
+
+[ckpt]
+interval = 50
+
+[orchestrator]
+batch_size = 512
+rollouts_per_example = 16
+
+[orchestrator.train.sampling]
+max_completion_tokens = 4096
+
+[[orchestrator.train.env]]
+id = "deepcoder-minimal-edit"
+args = { env_type = "ood", execution_weight = 0.1, similarity_weight = 1.0, similarity_metric = "levenshtein" }
+
+[orchestrator.wandb.log_extras]
+interval = 10
+
+[trainer.wandb]
+
+[orchestrator.teacher_model.model]
+name = "/home/ubuntu/teacher_rl"
+
+[inference]
+gpu_memory_utilization = 0.8
+
+[inference.parallel]
+dp = 4
+
+[teacher_inference.server]
+port = 8001
+
+[teacher_inference.model]
+name = "/home/ubuntu/teacher_rl"
+
+[teacher_inference]
+gpu_memory_utilization = 0.8

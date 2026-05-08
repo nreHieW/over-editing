@@ -18,7 +18,7 @@ hf upload [HF HUB REPO NAME] saves/qwen3-4b-instruct-2507 .
 ```
 
 ## RL
-We use [Prime-RL](https://github.com/PrimeIntellect-ai/prime-rl) for RL. You will first need to install Astral's [uv](https://github.com/astral-sh/uv) package manager. We specifically use commit `5d7146b` of Prime-RL.
+We use [Prime-RL](https://github.com/PrimeIntellect-ai/prime-rl) for RL. You will first need to install Astral's [uv](https://github.com/astral-sh/uv) package manager. We specifically use commit `5b44d8283c08c9dae9003ae4e3c7138bde668c37` of Prime-RL.
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/PrimeIntellect-ai/prime-rl/main/scripts/install.sh | bash
