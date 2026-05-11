@@ -2,8 +2,9 @@
 The files in this folder are for training models. It is recommended to do this in a separate project directory to avoid conflicts with the current project dependencies.
 
 ## SFT
-We use [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) for SFT. First run the setup script which will install the dependencies and prepare the dataset. You will need to provide your Weights and Biases API key, and your HuggingFace API key.
+We use [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) for SFT. First run the setup script which will install the dependencies and prepare the dataset. You will need to provide your Weights and Biases API key, and your HuggingFace API key. If you are doing RL, you can skip this step.
 ```bash
+cd sft
 bash setup.sh
 ```
 
