@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software or the benchmark, please cite the paper below."
+title: "When Models Edit Too Much: On the Fidelity of Minimal Code Edits"
+abstract: >-
+  Code and evaluation framework for measuring over-editing in LLM code repair:
+  400 BigCodeBench tasks with injected AST-level corruptions, giving each repair
+  task a known minimal patch, plus prompting and post-training experiments.
+authors:
+  - family-names: Zhu
+    given-names: Tongyao
+  - family-names: Lim
+    given-names: Wei Hern
+  - family-names: Kan
+    given-names: Min-Yen
+license: Apache-2.0
+repository-code: "https://github.com/nreHieW/over-editing"
+preferred-citation:
+  type: conference-paper
+  title: "When Models Edit Too Much: On the Fidelity of Minimal Code Edits"
+  authors:
+    - family-names: Zhu
+      given-names: Tongyao
+    - family-names: Lim
+      given-names: Wei Hern
+    - family-names: Kan
+      given-names: Min-Yen
+  collection-title: "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing"
+  conference:
+    name: "EMNLP 2026"
+  year: 2026
+  notes: "To appear"

@@ -1,7 +1,7 @@
 [project]
-name = "fyp"
+name = "over-editing"
 version = "0.1.0"
-description = "Add your description here"
+description = "Measuring and reducing over-editing in LLM code repair (EMNLP 2026)"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
