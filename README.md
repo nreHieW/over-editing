@@ -1,6 +1,8 @@
 # 🩹 [EMNLP 2026] When Models Edit Too Much: On the Fidelity of Minimal Code Edits
 
-Tongyao Zhu, Lim Wei Hern, and Min-Yen Kan
+Tongyao Zhu\*, Wei Hern Lim\*, and Min-Yen Kan<sup>†</sup>
+
+<sub>National University of Singapore &middot; \*Equal contribution &middot; <sup>†</sup>Corresponding author</sub>
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%2B-green.svg)](pyproject.toml)
@@ -9,9 +11,9 @@ Tongyao Zhu, Lim Wei Hern, and Min-Yen Kan
 <!-- TODO(link): add an arXiv / ACL Anthology badge and URL here once the paper link is live. -->
 
 <p align="center">
-  <img src="assets/figures/over_editing_example.png" alt="A one-line boundary bug repaired by rewriting validation, data conversion, curve fitting, and plotting logic" width="100%">
+  <img src="assets/figures/over_editing_example.png" alt="One off-by-one bug repaired by a minimal patch and by six frontier models, every patch passing the same tests" width="62%">
   <br>
-  <sub>The bug is one <code>range()</code> endpoint. The model fixes it — and rewrites validation, data conversion, curve fitting, and plotting on the way. The tests still pass.</sub>
+  <sub>One off-by-one bug in a BigCodeBench function. The minimal fix changes a single line; GPT-5.4 adds 60 lines of validation, dtype coercion, NaN masking, and resampling that no test requires. Every patch shown passes all five tests — edit fidelity is what separates them.</sub>
 </p>
 
 This repository accompanies our EMNLP 2026 main conference paper, *When Models Edit Too Much: On the Fidelity of Minimal Code Edits*. 🔧
@@ -33,7 +35,7 @@ We score every repair on three axes:
 | Question | What we find |
 | --- | --- |
 | 🤖 Do frontier models over-edit? | Yes, and correctness does not predict it. GPT-5.5, DeepSeek, and Gemini variants reach competitive Pass@1 while changing far more code than the minimal reversal. Claude Opus 4.7 shows the two *can* coexist. |
-| 💬 Does one sentence help? | Substantially. Adding a single preservation instruction drops aggregate excess Levenshtein distance from **0.194 → 0.130**, cuts added cognitive complexity by **27.0%**, and *raises* Pass@1 by **2.2 points** (matched-pair signed-rank *p* < 10⁻⁴). |
+| 💬 Does one sentence help? | Substantially. Adding a single preservation clause drops aggregate excess Levenshtein distance from **0.195 → 0.131**, cuts added cognitive complexity by **26.6%**, and *raises* Pass@1 by **2.3 points** (matched-pair signed-rank *p* < 10⁻⁴). It shifts all 50 model-prompt settings toward smaller edits and lifts Pass@1 in 40 of 50. |
 | 🧠 Is reasoning enough? | No. Reasoning effects are model-specific rather than monotonic — it helps some families on both metrics and hurts others. |
 | 📈 Is scale enough? | No. Across Qwen2.5-Coder 0.5B→32B, Pass@1 rises with size but edit fidelity does not improve monotonically. |
 | 🔓 Open-weight models too? | Same pattern. Preservation prompting moves average Pass@1 0.788 → 0.828 and excess Levenshtein 0.176 → 0.121. |
@@ -43,7 +45,7 @@ We score every repair on three axes:
 <p align="center">
   <img src="assets/figures/frontier_prompt_effect.png" alt="Pass@1 versus excess Levenshtein distance for frontier models under generic and explicit prompts" width="100%">
   <br>
-  <sub>Each connected pair is one model under the generic (blue) and preservation (red) prompt. Up and to the left is better.</sub>
+  <sub>Each connected pair is one model under the generic (blue) and explicit preservation (red) prompt; four families are highlighted. Up and to the left is better. The heaviest over-editors move furthest — GPT-5.5 High nearly halves its excess distance (0.299 → 0.159) — while the already-faithful Opus 4.7 barely moves.</sub>
 </p>
 
 **Minimal-edit post-training** on Qwen3-4B-Instruct-2507. Pass@1 is over all 400 evaluation examples; edit metrics are averaged over passing repairs. LCB is the absolute LiveCodeBench v6 score, with the change from the base model (32.6%) in parentheses.
