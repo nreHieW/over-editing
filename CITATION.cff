@@ -14,8 +14,12 @@ authors:
     given-names: Min-Yen
 license: Apache-2.0
 repository-code: "https://github.com/nreHieW/over-editing"
+identifiers:
+  - type: other
+    value: "arXiv:2609.04061"
+    description: "arXiv preprint"
 preferred-citation:
-  type: conference-paper
+  type: article
   title: "When Models Edit Too Much: On the Fidelity of Minimal Code Edits"
   authors:
     - family-names: Zhu
@@ -24,8 +28,6 @@ preferred-citation:
       given-names: Wei Hern
     - family-names: Kan
       given-names: Min-Yen
-  collection-title: "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing"
-  conference:
-    name: "EMNLP 2026"
   year: 2026
-  notes: "To appear"
+  url: "https://arxiv.org/abs/2609.04061"
+  notes: "arXiv:2609.04061 [cs.SE]. To appear at EMNLP 2026 (main conference)."

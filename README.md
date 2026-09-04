@@ -7,8 +7,7 @@ Tongyao Zhu\*, Wei Hern Lim\*, and Min-Yen Kan<sup>†</sup>
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%2B-green.svg)](pyproject.toml)
 [![Venue](https://img.shields.io/badge/EMNLP%202026-main%20conference-b31b1b.svg)](#citation-)
-
-<!-- TODO(link): add an arXiv / ACL Anthology badge and URL here once the paper link is live. -->
+[![Paper](https://img.shields.io/badge/paper-arXiv%3A2609.04061-purple.svg)](https://arxiv.org/abs/2609.04061)
 
 <p align="center">
   <img src="assets/figures/over_editing_example.png" alt="One off-by-one bug repaired by a minimal patch and by six frontier models, every patch passing the same tests" width="62%">
@@ -16,7 +15,7 @@ Tongyao Zhu\*, Wei Hern Lim\*, and Min-Yen Kan<sup>†</sup>
   <sub>One off-by-one bug in a BigCodeBench function. The minimal fix changes a single line; GPT-5.4 adds 60 lines of validation, dtype coercion, NaN masking, and resampling that no test requires. Every patch shown passes all five tests — edit fidelity is what separates them.</sub>
 </p>
 
-This repository accompanies our EMNLP 2026 main conference paper, *When Models Edit Too Much: On the Fidelity of Minimal Code Edits*. 🔧
+This repository accompanies our EMNLP 2026 main conference paper, [When Models Edit Too Much: On the Fidelity of Minimal Code Edits](https://arxiv.org/abs/2609.04061). 🔧
 
 LLMs are increasingly asked to edit code that already exists, and correctness alone is not enough there: a good repair should also be **minimal, reviewable, and faithful** to the original implementation. We study **over-editing** — a functionally correct repair that changes more code than the minimal fix requires. 🐛
 
@@ -131,15 +130,16 @@ We thank the members of [WING@NUS](https://wing.comp.nus.edu.sg/) for their feed
 If this code is useful for your research, please cite our EMNLP 2026 paper:
 
 ```bibtex
-@inproceedings{zhu2026whenmodelsedit,
-  title     = {When Models Edit Too Much: On the Fidelity of Minimal Code Edits},
-  author    = {Zhu, Tongyao and Lim, Wei Hern and Kan, Min-Yen},
-  booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing},
-  year      = {2026},
-  note      = {To appear}
+@misc{zhu2026modelseditmuchfidelity,
+      title={When Models Edit Too Much: On the Fidelity of Minimal Code Edits}, 
+      author={Tongyao Zhu and Wei Hern Lim and Min-Yen Kan},
+      year={2026},
+      eprint={2609.04061},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2609.04061}, 
 }
 ```
-<!-- TODO(link): replace `note = {To appear}` with the ACL Anthology pages/url once assigned. -->
 
 ## License 📄
 
