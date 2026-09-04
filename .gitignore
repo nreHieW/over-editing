@@ -9,9 +9,23 @@ wheels/
 # Virtual environments
 .venv
 
+# Secrets and local configuration
 .env
-/data
+
+# Generated results, scratch data, and notebooks
+/data/*
 *.json
 *.jsonl
 *.ipynb
+
+# Generated plots
 *.png
+
+# OS cruft
+.DS_Store
+
+# Release artifacts we do track. Keep these last: the last matching
+# pattern wins, so these negations must follow the rules above.
+!/data/questions/
+!/data/questions/corrupted_solutions_manual_easy_400.jsonl
+!assets/figures/*.png
