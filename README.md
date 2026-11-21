@@ -51,6 +51,18 @@ assets/figures/         Paper figures shown above
 
 `data/questions/corrupted_solutions_manual_easy_400.jsonl` is the evaluation set used in the paper: 232 tasks carry one injected corruption and 168 carry two, for 568 applications across 12 corruption families. Each record has `task_id`, `prompt`, `canonical_solution`, `corrupted_solution`, and `test_code` — but note the corruption labels live under **`mutation_type`** in 172 records and **`mutation_types`** in the other 228, so read both keys when parsing. Generated artifacts (`data/code_edits/`, logs, checkpoints) are gitignored.
 
+## Checkpoints 🤗
+
+The Qwen3-4B-Instruct-2507 checkpoints from Table 3 of the paper are on the Hugging Face Hub:
+
+| Method | Setting | Checkpoint |
+| --- | --- | --- |
+| SFT | In-domain | [nreHieW/qwen3-4b-instruct-2507-3epochs-non-ood](https://huggingface.co/nreHieW/qwen3-4b-instruct-2507-3epochs-non-ood) |
+| SFT | Out-of-domain | [nreHieW/qwen3-4b-instruct-2507-3epochs-ood](https://huggingface.co/nreHieW/qwen3-4b-instruct-2507-3epochs-ood) |
+| Minimal-edit RL | Out-of-domain | [nreHieW/partial-edits-rl-50-steps](https://huggingface.co/nreHieW/partial-edits-rl-50-steps) |
+
+The evaluation set is also on the Hub as [tyzhu/over-editing-bench](https://huggingface.co/datasets/tyzhu/over-editing-bench).
+
 ## Reproduce The Main Run 🚀
 
 Install [uv](https://docs.astral.sh/uv/), sync the environment, and set the API key for your provider (generation routes through [OpenRouter](https://openrouter.ai/) by default; a `.env` file at the repo root is picked up automatically):
@@ -117,7 +129,7 @@ Other useful flags: `--is_reasoning` selects the reasoning variant of a model, `
 
 ## Notes On This Release 📝
 
-- **Trained checkpoints and raw result files are not part of this release yet.** The code here reproduces the benchmark, the prompting experiments, and the training pipeline; the model artifacts will follow.
+- **Only the SFT and RL checkpoints above are released.** The other trained models and the raw result files are not part of this release. The code here reproduces the benchmark, the prompting experiments, and the training pipeline.
 - **Generation routes through OpenRouter.** In [`models/__init__.py`](models/__init__.py), the provider-specific and `local/` (vLLM) branches of `get_model` are commented out, so serving an open-weight model from a local endpoint needs that routing re-enabled.
 - **`train/LiveCodeBench/` is a vendored fork** of [LiveCodeBench](https://github.com/LiveCodeBench/LiveCodeBench), which fixes several upstream bugs and adds model support. It keeps its own MIT `LICENSE` and is not covered by this repository's Apache-2.0 license.
 
